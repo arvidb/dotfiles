@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function doIt() {
+function syncFiles() {
     rsync --exclude ".git/" \
 	  --exclude "themes" \
 	  --exclude ".DS_Store" \
@@ -10,13 +10,13 @@ function doIt() {
 	  -avhn --no-perms . ~;
 }
 
-if [ "$1" == "--force" -o "$1" == "-f" ]; then
-    doIt;
+if [ "$1" == "-f" ]; then
+    syncFiles;
 else
-    read -p "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1;
+    read -p "Do you want to sync files to your home directory? (y/n) " -n 1;
     echo "";
     if [[ $REPLY =~ ^[Yy]$ ]]; then
-	doIt;
+	syncFiles;
     fi;
 fi;
-unset doIt;
+unset syncFiles;
