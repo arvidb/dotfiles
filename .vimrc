@@ -1,13 +1,16 @@
-set number  
+"set relativenumber  
+set number
 set linebreak	
 set showbreak=+++   
 set textwidth=100   
 set showmatch	
 set visualbell	
 
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+
 syntax on
-set background=dark
-colorscheme material
+"set background=dark
+"colorscheme material
 
 set hlsearch	
 set smartcase	
@@ -26,6 +29,8 @@ set showtabline=2
 set undolevels=1000	
 set backspace=indent,eol,start 
 set mouse=v
+
+:imap jj <Esc>
 
 nnoremap <C-r> :w <CR> :!g++ % -o %< && ./%< <CR>
 nnoremap <C-b> :w <CR> :!g++ % -o %< <CR>
