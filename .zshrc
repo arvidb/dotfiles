@@ -104,3 +104,13 @@ autoload -U promptinit; promptinit
 prompt "pure"
 
 export TERM=xterm-256color
+
+bindkey -v
+export KEYTIMEOUT=1
+bindkey '^P' up-history
+bindkey '^N' down-history
+bindkey '^?' backward-delete-char
+bindkey '^h' backward-delete-char
+bindkey '^w' backward-kill-word
+bindkey '^r' history-incremental-search-backward
+bindkey -M vicmd v edit-command-line

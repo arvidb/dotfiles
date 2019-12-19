@@ -7,7 +7,7 @@ function syncFiles() {
 	  --exclude ".osx" \
 	  --exclude "bootstrap.sh" \
 	  --exclude "README.md" \
-	  -avhn --no-perms . ~;
+	  -avh --no-perms . ~;
 }
 
 if [ "$1" == "-f" ]; then
