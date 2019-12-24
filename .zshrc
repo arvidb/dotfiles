@@ -22,16 +22,19 @@ prompt "pure"
 export TERM=xterm-256color
 
 bindkey -v
-export KEYTIMEOUT=1
+export KEYTIMEOUT=40
 
+bindkey '^a' vi-beginning-of-line
+bindkey '^e' vi-end-of-line
 bindkey '^P' up-history
 bindkey '^N' down-history
 bindkey '^?' backward-delete-char
 bindkey '^h' backward-delete-char
 bindkey '^w' backward-kill-word
 bindkey '^r' history-incremental-search-backward
-bindkey 'jj' vi-cmd-mode
-bindkey -M vicmd v edit-command-line
 
+bindkey 'jj' vi-cmd-mode
+
+bindkey -M vicmd v edit-command-line
 bindkey -M vicmd 'gg' beginning-of-line
 bindkey -M vicmd 'G'  end-of-line
