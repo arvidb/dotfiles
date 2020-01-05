@@ -1,10 +1,17 @@
 call plug#begin('~/.vim/plugged')
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-surround'
+Plug 'leafoftree/vim-vue-plugin'
 call plug#end()
 
-set termguicolors
+let g:vue_pre_processors = []
 
-"set relativenumber  
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+
+set termguicolors
+set clipboard=unnamed
+
+set relativenumber  
 set number
 set linebreak	
 set showbreak=+++   
@@ -29,8 +36,9 @@ set softtabstop=4
 set expandtab	
 "set smartindent
 
-" python
 autocmd Filetype python setlocal ts=4 sw=4 expandtab
+autocmd Filetype html setlocal ts=2 sw=2 expandtab
+autocmd Filetype vue setlocal ts=2 sw=2 expandtab
 
 set list
 set listchars=tab:>-
