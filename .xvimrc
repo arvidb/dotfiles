@@ -1,0 +1,6 @@
+set ignorecase
+
+imap jj <Esc>
+nmap <C-p> :xccmd openQuickly<CR>
+nnoremap ,j :xccmd jumpToDefinition<CR>
+nnoremap ,c :xccmd jumpToNextCounterpart<CR>
