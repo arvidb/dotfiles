@@ -2,11 +2,20 @@ call plug#begin('~/.vim/plugged')
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-surround'
 Plug 'leafoftree/vim-vue-plugin'
+Plug 'jremmen/vim-ripgrep'
 call plug#end()
 
 let g:vue_pre_processors = []
 
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/](node_modules|target|dist)|(\.(git|svn))$',
+    \ 'file': '\v\.(exe|so|dll|DS_Store|swp)$',
+    \ }
+
+if executable('rg')
+    let g:rg_derive_root='true'
+endif
 
 set termguicolors
 set clipboard=unnamed
@@ -25,15 +34,15 @@ set cursorline
 hi CursorLine   cterm=NONE ctermbg=236
 hi LineNr       ctermfg=gray
 
-set hlsearch	
-set smartcase	
-set ignorecase	
-set incsearch	
+set hlsearch
+set smartcase
+set ignorecase
+set incsearch
 
 "set autoindent    
 set shiftwidth=4
 set softtabstop=4
-set expandtab	
+set expandtab
 "set smartindent
 
 autocmd Filetype python setlocal ts=4 sw=4 expandtab
@@ -50,7 +59,20 @@ set undolevels=1000
 set backspace=indent,eol,start 
 set mouse=v
 
+let mapleader = " "
+
 :imap jj <Esc>
+
+nnoremap <leader>h :wincmd h<CR>
+nnoremap <leader>j :wincmd j<CR>
+nnoremap <leader>k :wincmd k<CR>
+nnoremap <leader>l :wincmd l<CR>
+nnoremap <leader>o :wincmd l<CR>
+nnoremap <leader>v :vsplit<CR>
+nnoremap <leader>s :split<CR>
+nnoremap <leader>x :q<CR>
+nnoremap <silent> <leader>+ :vertical resize +5<CR>
+nnoremap <silent> <leader>- :vertical resize +-5<CR>
 
 "nnoremap <C-r> :w <CR> :!g++ % -o %< && ./%< <CR>
 "nnoremap <C-b> :w <CR> :!g++ % -o %< <CR>
