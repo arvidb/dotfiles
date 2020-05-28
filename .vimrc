@@ -3,6 +3,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-surround'
 Plug 'leafoftree/vim-vue-plugin'
 Plug 'jremmen/vim-ripgrep'
+Plug 'ntpeters/vim-better-whitespace'
 call plug#end()
 
 let g:vue_pre_processors = []
@@ -20,13 +21,13 @@ endif
 set termguicolors
 set clipboard=unnamed
 
-set relativenumber  
+set relativenumber
 set number
-set linebreak	
-set showbreak=+++   
-set textwidth=100   
-set showmatch	
-set visualbell	
+set linebreak
+set showbreak=+++
+set textwidth=100
+set showmatch
+set visualbell
 
 syntax on
 
@@ -39,7 +40,7 @@ set smartcase
 set ignorecase
 set incsearch
 
-"set autoindent    
+"set autoindent
 set shiftwidth=4
 set softtabstop=4
 set expandtab
@@ -52,11 +53,11 @@ autocmd Filetype vue setlocal ts=2 sw=2 expandtab
 set list
 set listchars=tab:>-
 
-set ruler	
-set showtabline=2	
+set ruler
+set showtabline=2
 
-set undolevels=1000	
-set backspace=indent,eol,start 
+set undolevels=1000
+set backspace=indent,eol,start
 set mouse=v
 
 let mapleader = " "
