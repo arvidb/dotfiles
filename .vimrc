@@ -64,6 +64,9 @@ let mapleader = " "
 
 :imap jj <Esc>
 
+nnoremap <C-f> :CtrlPLine<CR>
+nnoremap <C-g> :CtrlPMRU<CR>
+
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
