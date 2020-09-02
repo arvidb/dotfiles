@@ -9,6 +9,7 @@ call plug#end()
 let g:vue_pre_processors = []
 
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/](node_modules|target|dist)|(\.(git|svn))$',
     \ 'file': '\v\.(exe|so|dll|DS_Store|swp)$',
@@ -23,11 +24,13 @@ set clipboard=unnamed
 
 set relativenumber
 set number
+set hidden
 set linebreak
 set showbreak=+++
 set textwidth=100
 set showmatch
 set visualbell
+set autoread
 
 syntax on
 
@@ -75,6 +78,7 @@ nnoremap <leader>o :wincmd l<CR>
 nnoremap <leader>v :vsplit<CR>
 nnoremap <leader>s :split<CR>
 nnoremap <leader>x :q<CR>
+nnoremap <leader><leader> :nohl<CR>
 nnoremap <silent> <leader>+ :vertical resize +5<CR>
 nnoremap <silent> <leader>- :vertical resize +-5<CR>
 
