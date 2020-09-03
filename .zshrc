@@ -14,10 +14,10 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-alias tmux="TERM=screen-256color-bce tmux"
+# alias tmux="TERM=screen-256color-bce tmux"
 
-autoload -U promptinit; promptinit
-prompt "pure"
+#autoload -U promptinit; promptinit
+#prompt "pure"
 
 export TERM=xterm-256color
 

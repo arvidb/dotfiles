@@ -18,7 +18,7 @@ if executable('rg')
     let g:rg_derive_root='true'
 endif
 
-set termguicolors
+"set termguicolors
 set clipboard=unnamed
 
 set relativenumber
