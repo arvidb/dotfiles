@@ -4,7 +4,7 @@ window:
     lines: 38
   padding:
     x: 5
-    y: 5
+    y: 0
     # decorations: none
 
 scrolling:

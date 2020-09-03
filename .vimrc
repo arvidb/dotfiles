@@ -20,6 +20,8 @@ if executable('rg')
 endif
 
 "set termguicolors
+set background=dark
+
 set clipboard=unnamed
 
 set relativenumber
@@ -37,6 +39,7 @@ syntax on
 set cursorline
 hi CursorLine   cterm=NONE ctermbg=236
 hi LineNr       ctermfg=gray
+hi TabLineFill  cterm=NONE ctermbg=236
 
 set hlsearch
 set smartcase
