@@ -1,8 +1,7 @@
 call plug#begin('~/.vim/plugged')
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'tpope/vim-surround'
-Plug 'leafoftree/vim-vue-plugin'
-Plug 'jremmen/vim-ripgrep'
+"Plug 'tpope/vim-surround'
+"Plug 'leafoftree/vim-vue-plugin'
 Plug 'ntpeters/vim-better-whitespace'
 call plug#end()
 
@@ -40,6 +39,10 @@ set cursorline
 hi CursorLine   cterm=NONE ctermbg=236
 hi LineNr       ctermfg=gray
 hi TabLineFill  cterm=NONE ctermbg=236
+"
+" PMenu
+hi Pmenu ctermfg=15 ctermbg=61 cterm=NONE guifg=#f8f8f2 guibg=#646e96 gui=NONE
+hi PmenuSel ctermfg=16 ctermbg=84 cterm=bold guifg=#282a36 guibg=#50fa7b gui=NONE
 
 set hlsearch
 set smartcase

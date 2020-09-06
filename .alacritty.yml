@@ -1,11 +1,12 @@
 window:
   dimensions:
-    columns: 140
-    lines: 38
+    columns: 160
+    lines: 56
   padding:
     x: 5
     y: 0
-    # decorations: none
+
+    # decorations: buttonless
 
 scrolling:
   history: 10000
@@ -22,6 +23,9 @@ font:
     family: Monaco
     style: Italic
   size: 12.0
+  offset:
+      x: 0
+      y: 0
 draw_bold_text_with_bright_colors: true
 
 
@@ -100,6 +104,9 @@ cursor:
 # Live config reload (changes require restart)
 live_config_reload: true
 
+bell:
+    duration: 0
+
 key_bindings:
   - { key: Key1,      mods: Alt,          chars: "\xA9"                  }
   - { key: Key2,      mods: Alt,          chars: "\x40"                  }
@@ -112,7 +119,7 @@ key_bindings:
   - { key: RBracket,      mods: Alt,          chars: "\x5D"                  }
   - { key: Key0,      mods: Alt,          chars: "≈"                     }
   - { key: Minus,     mods: Alt,          chars: "\xB1"                  }
-  - { key: Grave,     mods: Alt,          chars: "~"                  }
+  - { key: Apostrophe,     mods: Alt,          chars: "~"                  }
   - { key: Key1,      mods: Alt|Shift,    chars: "\xA1"                  }
   - { key: Key2,      mods: Alt|Shift,    chars: "”"                     }
   - { key: Key3,      mods: Alt|Shift,    chars: "\xA5"                  }
