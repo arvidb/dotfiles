@@ -3,12 +3,13 @@ Plug 'ctrlpvim/ctrlp.vim'
 "Plug 'tpope/vim-surround'
 "Plug 'leafoftree/vim-vue-plugin'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'itchyny/lightline.vim'
+Plug 'morhetz/gruvbox'
 call plug#end()
 
 let g:vue_pre_processors = []
 
 let g:better_whitespace_ctermcolor='239'
-    
 
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let g:ctrlp_working_path_mode = 'ra'
@@ -21,6 +22,7 @@ if executable('rg')
     let g:rg_derive_root='true'
 endif
 
+colorscheme gruvbox
 "set termguicolors
 set background=dark
 
@@ -58,6 +60,10 @@ set softtabstop=4
 set expandtab
 "set smartindent
 
+set laststatus=2
+set showtabline=1
+set noshowmode
+
 autocmd Filetype python setlocal ts=4 sw=4 expandtab
 autocmd Filetype html setlocal ts=2 sw=2 expandtab
 autocmd Filetype vue setlocal ts=2 sw=2 expandtab
@@ -66,7 +72,6 @@ set list
 set listchars=tab:>-
 
 set ruler
-set showtabline=2
 
 set undolevels=1000
 set backspace=indent,eol,start
@@ -94,5 +99,5 @@ nnoremap <silent> <leader>- :vertical resize +-5<CR>
 "nnoremap <C-r> :w <CR> :!g++ % -o %< && ./%< <CR>
 "nnoremap <C-b> :w <CR> :!g++ % -o %< <CR>
 
-"nnoremap <C-j> :bprev<CR>
-"nnoremap <C-k> :bnext<CR>
+nnoremap <C-j> :bprev<CR>
+nnoremap <C-k> :bnext<CR>
