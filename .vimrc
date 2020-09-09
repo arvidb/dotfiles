@@ -7,6 +7,9 @@ call plug#end()
 
 let g:vue_pre_processors = []
 
+let g:better_whitespace_ctermcolor='239'
+    
+
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = {
