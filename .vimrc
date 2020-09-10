@@ -4,7 +4,6 @@ Plug 'ctrlpvim/ctrlp.vim'
 "Plug 'leafoftree/vim-vue-plugin'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'itchyny/lightline.vim'
-Plug 'morhetz/gruvbox'
 call plug#end()
 
 let g:vue_pre_processors = []
@@ -22,7 +21,6 @@ if executable('rg')
     let g:rg_derive_root='true'
 endif
 
-colorscheme gruvbox
 "set termguicolors
 set background=dark
 
