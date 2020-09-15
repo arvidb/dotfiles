@@ -4,7 +4,6 @@ Plug 'ctrlpvim/ctrlp.vim'
 "Plug 'leafoftree/vim-vue-plugin'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'itchyny/lightline.vim'
-Plug 'morhetz/gruvbox'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
@@ -50,7 +49,6 @@ if executable('rg')
     let g:rg_derive_root='true'
 endif
 
-colorscheme gruvbox
 "set termguicolors
 set background=dark
 
