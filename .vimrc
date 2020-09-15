@@ -5,11 +5,39 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'itchyny/lightline.vim'
 Plug 'morhetz/gruvbox'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
 call plug#end()
 
-let g:vue_pre_processors = []
+let g:lsp_settings = {
+\  'clangd': {'cmd': ['/usr/local/Cellar/llvm/10.0.1/bin/clangd']},
+\  'efm-langserver': {'disabled': v:false}
+\}
 
-let g:better_whitespace_ctermcolor='239'
+augroup lsp_install
+    au!
+    " call s:on_lsp_buffer_enabled only for languages that has the server registered.
+    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
+
+function! s:on_lsp_buffer_enabled() abort
+    setlocal omnifunc=lsp#complete
+    setlocal signcolumn=yes
+    if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+    nmap <buffer> gd <plug>(lsp-definition)
+    nmap <buffer> gr <plug>(lsp-references)
+    nmap <buffer> gi <plug>(lsp-implementation)
+    nmap <buffer> gt <plug>(lsp-type-definition)
+    nmap <buffer> <leader>rn <plug>(lsp-rename)
+    nmap <buffer> [g <Plug>(lsp-previous-diagnostic)
+    nmap <buffer> ]g <Plug>(lsp-next-diagnostic)
+    nmap <buffer> K <plug>(lsp-hover)
+    " refer to doc to add more commands
+endfunction
+
+let g:vue_pre_processors = []
 
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let g:ctrlp_working_path_mode = 'ra'
