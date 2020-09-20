@@ -1,7 +1,6 @@
 call plug#begin('~/.vim/plugged')
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'ctrlpvim/ctrlp.vim'
-"Plug 'tpope/vim-surround'
-"Plug 'leafoftree/vim-vue-plugin'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'itchyny/lightline.vim'
 Plug 'prabirshrestha/asyncomplete.vim'
@@ -10,6 +9,16 @@ Plug 'mattn/vim-lsp-settings'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 call plug#end()
 
+let g:dracula_italic = 0
+
+syntax enable
+colorscheme dracula
+set termguicolors
+set background=dark
+
+let g:better_whitespace_guicolor='lightred'
+let g:better_whitespace_enabled=0
+
 let g:lsp_settings = {
 \  'clangd': {'cmd': ['/usr/local/Cellar/llvm/10.0.1/bin/clangd']},
 \  'efm-langserver': {'disabled': v:false}
@@ -17,6 +26,8 @@ let g:lsp_settings = {
 
 augroup lsp_install
     au!
+    let g:lsp_signs_enabled = 1         " enable signs
+    let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal mode
     " call s:on_lsp_buffer_enabled only for languages that has the server registered.
     autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
@@ -26,8 +37,10 @@ function! s:on_lsp_buffer_enabled() abort
     setlocal signcolumn=yes
     if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
     nmap <buffer> gd <plug>(lsp-definition)
+    nmap <buffer> gD <plug>(lsp-peek-definition)
     nmap <buffer> gr <plug>(lsp-references)
-    nmap <buffer> gi <plug>(lsp-implementation)
+    nmap <buffer> gi <plug>(lsp-declaration)
+    nmap <buffer> gI <plug>(lsp-peek-declaration)
     nmap <buffer> gt <plug>(lsp-type-definition)
     nmap <buffer> <leader>rn <plug>(lsp-rename)
     nmap <buffer> [g <Plug>(lsp-previous-diagnostic)
@@ -49,8 +62,7 @@ if executable('rg')
     let g:rg_derive_root='true'
 endif
 
-"set termguicolors
-set background=dark
+set shortmess+=c
 
 set clipboard=unnamed
 
@@ -64,16 +76,10 @@ set showmatch
 set visualbell
 set autoread
 
-syntax on
 
 set cursorline
 hi CursorLine   cterm=NONE ctermbg=236
 hi LineNr       ctermfg=gray
-hi TabLineFill  cterm=NONE ctermbg=236
-"
-" PMenu
-hi Pmenu ctermfg=15 ctermbg=61 cterm=NONE guifg=#f8f8f2 guibg=#646e96 gui=NONE
-hi PmenuSel ctermfg=16 ctermbg=84 cterm=bold guifg=#282a36 guibg=#50fa7b gui=NONE
 
 set hlsearch
 set smartcase
@@ -87,7 +93,7 @@ set expandtab
 "set smartindent
 
 set laststatus=2
-set showtabline=1
+set showtabline=2
 set noshowmode
 
 autocmd Filetype python setlocal ts=4 sw=4 expandtab
