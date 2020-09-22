@@ -2,6 +2,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="robbyrussell"
+# ZSH_THEME="parrot"
 
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
@@ -14,12 +15,12 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# alias tmux="TERM=screen-256color-bce tmux"
+alias tmux='TERM=screen-256color tmux'
 
 #autoload -U promptinit; promptinit
 #prompt "pure"
 
-export TERM=xterm-256color
+#export TERM=xterm-256color
 
 bindkey -v
 export KEYTIMEOUT=40

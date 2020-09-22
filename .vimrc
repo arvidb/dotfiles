@@ -1,5 +1,5 @@
 call plug#begin('~/.vim/plugged')
-Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'ayu-theme/ayu-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'itchyny/lightline.vim'
@@ -9,12 +9,12 @@ Plug 'mattn/vim-lsp-settings'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 call plug#end()
 
-let g:dracula_italic = 0
+set termguicolors     " enable true colors support
+let ayucolor="mirage" " for mirage version of theme
+colorscheme ayu
+set background=dark
 
 syntax enable
-colorscheme dracula
-set termguicolors
-set background=dark
 
 let g:better_whitespace_guicolor='lightred'
 let g:better_whitespace_enabled=0
@@ -26,7 +26,7 @@ let g:lsp_settings = {
 
 augroup lsp_install
     au!
-    let g:lsp_signs_enabled = 1         " enable signs
+    let g:lsp_signs_enabled = 0         " enable signs
     let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal mode
     " call s:on_lsp_buffer_enabled only for languages that has the server registered.
     autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
@@ -34,7 +34,12 @@ augroup END
 
 function! s:on_lsp_buffer_enabled() abort
     setlocal omnifunc=lsp#complete
-    setlocal signcolumn=yes
+    setlocal signcolumn=no
+    "hi! link LspInformationHightlight DraculaCyan
+    "hi! link LspHintHighlight DraculaCyan
+    "hi! link LspErrorHighlight DraculaError
+    "hi! link LspWarningHighlight DraculaOrangeInverse
+
     if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
     nmap <buffer> gd <plug>(lsp-definition)
     nmap <buffer> gD <plug>(lsp-peek-definition)
