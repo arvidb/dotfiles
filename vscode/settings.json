@@ -1,0 +1,94 @@
+{
+    "cmake.configureOnOpen": true,
+    "vim.hlsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.incsearch": true,
+    "vim.ignorecase": true,
+    "vim.smartcase": true,
+    "vim.cursorStylePerMode.normal": "line",
+    "vim.textwidth": 120,
+    "vim.searchHighlightColor": "rgba(230, 120, 30, 0.5)",
+    "vim.highlightedyank.enable": true,
+    "vim.highlightedyank.color": "rgba(150, 240, 170, 0.5)",
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "j"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<leader>", "h"],
+            "after": ["<C-w>", "h"]
+        },
+        {
+            "before": ["<leader>", "j"],
+            "after": ["<C-w>", "j"]
+        },
+        {
+            "before": ["<leader>", "k"],
+            "after": ["<C-w>", "k"]
+        },
+        {
+            "before": ["<leader>", "l"],
+            "after": ["<C-w>", "l"]
+        },
+        {
+            "before": ["<leader>", "v"],
+            "commands": [":vsplit"]
+        },
+        {
+            "before": ["<leader>", "s"],
+            "commands": [":split"]
+        },
+        {
+            "before": ["<leader>", "<leader>"],
+            "commands": [":nohl"]
+        },
+        {
+            "before": ["<leader>", "b"],
+            "commands": [
+                {
+                    "command": "workbench.action.openPreviousEditorFromHistory"
+                },
+                {
+                    "command": "workbench.action.acceptSelectedQuickOpenItem"
+                }
+            ]
+        },
+        {
+            "before": ["g", "r"],
+            "commands": [
+                {
+                    "command": "editor.action.referenceSearch.trigger"
+                }
+            ]
+        },
+    ],
+    "vim.handleKeys": {
+        "<C-p>": false,
+        "<C-t>": false,
+    },
+    "vim.leader": "<space>",
+    "testMate.cpp.log.userId": "f91fd14c381607cdee6a7ba5d8e74c6963851668",
+    "testMate.cpp.log.logSentry": "disable_3",
+    "editor.rulers": [
+        120
+    ],
+    "workbench.colorTheme": "Ayu Mirage Bordered",
+    "editor.tokenColorCustomizations": {
+        "[Ayu Mirage Bordered]": {
+            "comments": "#7c858f",
+        }
+    },
+    "editor.minimap.enabled": false,
+    "window.zoomLevel": 0,
+    "testMate.cpp.debug.configTemplate": {
+        "name": "${label} (${suiteLabel})",
+        "program": "${exec}",
+        "args": "${args}",
+        "cwd": "${cwd}",
+        "environment": "${envObjArray}",
+        "sourceFileMap": "${sourceFileMapObj}"
+    }
+}
